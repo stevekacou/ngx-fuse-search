@@ -1,0 +1,43 @@
+{
+  "name": "nglibs",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve demo",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "jest -o --watch  --config ./projects/ngx-fuse-search/jest.config.js",
+    "test:coverage": "jest --coverage --config ./projects/ngx-fuse-search/jest.config.js",
+    "test:demo": "jest --config ./projects/demo/jest.config.js"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "~12.2.0",
+    "@angular/common": "~12.2.0",
+    "@angular/compiler": "~12.2.0",
+    "@angular/core": "~12.2.0",
+    "@angular/forms": "~12.2.0",
+    "@angular/platform-browser": "~12.2.0",
+    "@angular/platform-browser-dynamic": "~12.2.0",
+    "@angular/router": "~12.2.0",
+    "fuse.js": "^6.4.6",
+    "rxjs": "~6.6.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.11.4"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "~12.2.14",
+    "@angular/cli": "~12.2.11",
+    "@angular/compiler-cli": "~12.2.0",
+    "@types/jasmine": "~3.8.0",
+    "@types/jest": "^27.0.3",
+    "@types/node": "^12.11.1",
+    "jasmine-core": "~3.8.0",
+    "jest": "^27.4.4",
+    "jest-preset-angular": "^11.0.1",
+    "karma-coverage": "~2.0.3",
+    "ng-packagr": "^12.1.1",
+    "ts-jest": "^27.1.1",
+    "typescript": "~4.3.5"
+  }
+}

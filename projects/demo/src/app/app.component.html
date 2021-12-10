@@ -1,0 +1,11 @@
+<div>
+  <input placeholder="Rechercher..." id="search-term" type="text" [(ngModel)]="searchTerm">
+</div>
+
+<div>
+  <ul>
+     <li *ngFor="let country of countries | ngxFuseSearch:searchTerm:searchOptions; trackBy:trackByCode">
+       <span>{{country.name}} ({{country.prefix}})</span>
+     </li>
+  </ul>
+</div>
