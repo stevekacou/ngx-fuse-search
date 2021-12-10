@@ -1,3 +1,7 @@
+# Description
+An angular 12 library that export a pipe to filter list with fuse.js
+
+learn more about fuse here https://fusejs.io/
 # Installation
 
 ```
@@ -19,7 +23,7 @@ import { AppComponent } from './app';
 import { NgxFuseSearchModule } from 'ngx-fuse-search';
  
 @NgModule({
-  imports: [BrowserModule, NgxFuseSearchModule],
+  imports: [BrowserModule, NgxFuseSearchModule, FormsModule],
   declarations: [AppComponent],
   bootstrap: [AppComponent]
 })
@@ -54,7 +58,7 @@ export class AppComponent {
   };
 
   
-  countries: string[] = [
+  countries: any[] = [
     {
         "name": "Australia",
         "prefix": "+61",

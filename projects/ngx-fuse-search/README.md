@@ -1,24 +1,107 @@
-# NgxFuseSearch
+# Description
+An angular 12 library that export a pipe to filter list with fuse.js
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.0.
+learn more about fuse here https://fusejs.io/
+# Installation
 
-## Code scaffolding
+```
+npm i ngx-fuse-search --save
+yarn add ngx-fuse-search 
+```
 
-Run `ng generate component component-name --project ngx-fuse-search` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ngx-fuse-search`.
-> Note: Don't forget to add `--project ngx-fuse-search` or else it will be added to the default project in your `angular.json` file. 
+# Usage
 
-## Build
+compatible with **angular ~12**
 
-Run `ng build ngx-fuse-search` to build the project. The build artifacts will be stored in the `dist/` directory.
+import the module in the module you want to use it.
 
-## Publishing
+```
+import { NgModule } from '@angular/core';
+import { BrowserModule  } from '@angular/platform-browser';
+import { AppComponent } from './app';
+ 
+import { NgxFuseSearchModule } from 'ngx-fuse-search';
+ 
+@NgModule({
+  imports: [BrowserModule, NgxFuseSearchModule, FormsModule],
+  declarations: [AppComponent],
+  bootstrap: [AppComponent]
+})
+export class AppModule {}
+```
 
-After building your library with `ng build ngx-fuse-search`, go to the dist folder `cd dist/ngx-fuse-search` and run `npm publish`.
+And use pipe in your component
 
-## Running unit tests
+```
+import { Component } from '@angular/core';
+ 
+@Component({
+  selector: 'my-app',
+  template: `
+    <div>
+        <input type="text" [(ngModel)]="searchTerm">
+        <div *ngFor = "let country of countries | ngxFuseSearch:searchTerm:fuseOptions" >
+          <p>
+            {{country.name}}
+          </p>
+        </div>
+ 
+    </div>  
+  `
+}) 
+export class AppComponent {
+  searchTerm:  string; 
+  fuseOptions: NgxFuseSearchOptions = {
+    isCaseSensitive: false,
+    keys: ['name'],
+    shouldSort: true
+  };
 
-Run `ng test ngx-fuse-search` to execute the unit tests via [Karma](https://karma-runner.github.io).
+  
+  countries: any[] = [
+    {
+        "name": "Australia",
+        "prefix": "+61",
+        "flag": "https://flagcdn.com/au.svg",
+        "code": "AU"
+    },
+    {
+        "name": "Austria",
+        "prefix": "+43",
+        "flag": "https://flagcdn.com/at.svg",
+        "code": "AT"
+    },
+    {
+        "name": "Belgium",
+        "prefix": "+32",
+        "flag": "https://flagcdn.com/be.svg",
+        "code": "BE"
+    },
+    {
+        "name": "Brazil",
+        "prefix": "+55",
+        "flag": "https://flagcdn.com/br.svg",
+        "code": "BR"
+    },
+    {
+        "name": "Virgin Islands (British)",
+        "prefix": "+1",
+        "flag": "https://flagcdn.com/vg.svg",
+        "code": "VG"
+    },
+];
+}
+```
 
-## Further help
+Support ngx-fuse-search
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+ngx-fuse-search is completely free and open-source. If you find it useful, you can show your support by 🌟 it or sharing it in your social network.
+
+Contribute:
+Do it (:)
+
+License
+MIT © stevekacou
+
+Keywords
+angular angular12 angular-search-input angular-search-pipe
